@@ -1,0 +1,104 @@
+@import "tailwindcss";
+
+:root {
+  --background: #05070d;
+  --foreground: #e8f6f2;
+  --cyber-cyan: #00f5c8;
+  --cyber-violet: #7c5cff;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(0, 245, 200, 0.35) transparent;
+}
+
+html,
+body {
+  min-height: 100%;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
+}
+
+.bg-cyber-grid {
+  background-color: #05070d;
+  background-image:
+    linear-gradient(rgba(0, 245, 200, 0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 245, 200, 0.045) 1px, transparent 1px),
+    radial-gradient(ellipse 80% 50% at 50% -20%, rgba(124, 92, 255, 0.18), transparent 55%);
+  background-size:
+    48px 48px,
+    48px 48px,
+    100% 100%;
+}
+
+.glow-card {
+  position: relative;
+  background: rgba(8, 14, 26, 0.72);
+  border: 1px solid rgba(0, 245, 200, 0.16);
+  box-shadow:
+    0 0 0 1px rgba(124, 92, 255, 0.06),
+    0 12px 40px rgba(0, 0, 0, 0.45),
+    0 0 32px rgba(0, 245, 200, 0.06);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+}
+
+.glow-card::before {
+  content: "";
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(
+    135deg,
+    rgba(0, 245, 200, 0.12) 0%,
+    transparent 32%,
+    transparent 68%,
+    rgba(124, 92, 255, 0.1) 100%
+  );
+}
+
+input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 6px;
+  border-radius: 999px;
+  background: linear-gradient(
+    90deg,
+    rgba(0, 245, 200, 0.85),
+    rgba(124, 92, 255, 0.85)
+  );
+  outline: none;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #04110d;
+  border: 2px solid #00f5c8;
+  box-shadow: 0 0 12px rgba(0, 245, 200, 0.65);
+  cursor: pointer;
+}
+
+input[type="range"]::-moz-range-thumb {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #04110d;
+  border: 2px solid #00f5c8;
+  box-shadow: 0 0 12px rgba(0, 245, 200, 0.65);
+  cursor: pointer;
+}
